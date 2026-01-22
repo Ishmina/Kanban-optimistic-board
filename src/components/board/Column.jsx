@@ -1,9 +1,10 @@
+import { Droppable } from "@hello-pangea/dnd";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import Card from "../Card/Card";
 import CardForm from "../Card/CardForm";
 
-function Column({ title, cards, onCreate, onDelete, onMove }) {
+function Column({ title, cards, onCreate, onDelete }) {
   const [showForm, setShowForm] = useState(false);
 
   const handleCreate = async (card) => {
@@ -27,21 +28,30 @@ function Column({ title, cards, onCreate, onDelete, onMove }) {
     <div className="bg-white rounded-lg p-4 shadow">
       <h2 className="font-medium mb-4">{title}</h2>
 
-      <div className="space-y-2 mb-4">
-        {cards.length === 0 && (
-          <p className="text-sm text-gray-400">No cards</p>
-        )}
+      <Droppable droppableId={title}>
+        {(provided) => (
+          <div
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+            className="space-y-2 mb-4 min-h-[20px]"
+          >
+            {cards.length === 0 && (
+              <p className="text-sm text-gray-400">No cards</p>
+            )}
 
-        {cards.map((card) => (
-          <Card
-            key={card.id}
-            card={card}
-            column={title}
-            onDelete={handleDelete}
-            onMove={onMove}
-          />
-        ))}
-      </div>
+            {cards.map((card, index) => (
+              <Card
+                key={card.id}
+                card={card}
+                index={index}
+                onDelete={handleDelete}
+              />
+            ))}
+
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
 
       {showForm ? (
         <CardForm onSubmit={handleCreate} onCancel={() => setShowForm(false)} />
