@@ -28,10 +28,8 @@ The project was set up using the **official documentation** of each tool.
 
 ### Tailwind CSS
 - Tailwind CSS configured using the official Tailwind + Vite guide  
-- PostCSS and Autoprefixer added as recommended  
-- Tailwind directives included in the global CSS file  
-
-Reference: https://tailwindcss.com/docs/guides/vite
+ 
+ Reference: https://tailwindcss.com/docs/guides/vite
 
 ---
 
