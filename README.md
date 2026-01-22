@@ -38,7 +38,7 @@ Reference: https://tailwindcss.com/docs/guides/vite
 ## Running the Project Locally
 
 ```bash
-git clone <https://github.com/Ishmina/Kanban-optimistic-board>
+git clone https://github.com/Ishmina/Kanban-optimistic-board
 cd kanban-board
 npm install
 npm run dev
