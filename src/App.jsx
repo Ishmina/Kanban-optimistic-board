@@ -1,15 +1,12 @@
-import React from 'react'
-import Board from "./components/Board";
+import { Toaster } from "react-hot-toast";
+import Board from "./components/Board/Board";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <h1 className="text-2xl font-semibold mb-4">
-        Kanban Board
-      </h1>
-
+    <>
+      <Toaster position="top-right" />
       <Board />
-    </div>
+    </>
   );
 }
 
