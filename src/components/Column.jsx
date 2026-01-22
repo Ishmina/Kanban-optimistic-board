@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-function Column({ title, cards }) {
+function Column({ title, cards, onDelete }) {
   return (
     <div className="bg-white rounded-lg p-4 shadow-sm">
       <h2 className="font-semibold mb-3">{title}</h2>
@@ -14,6 +14,7 @@ function Column({ title, cards }) {
             title={card.title}
             description={card.description}
             priority={card.priority}
+            onDelete={() => onDelete(card.id)}
           />
         ))
       )}
